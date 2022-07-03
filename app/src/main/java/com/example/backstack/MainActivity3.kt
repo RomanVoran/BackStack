@@ -1,6 +1,7 @@
 package com.example.backstack
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,6 +26,7 @@ class MainActivity3 : AppCompatActivity() {
     override fun onResume() {
         Log.d("TEST_TAG", "Activity 3    onResume")
         super.onResume()
+        Logger.logBackStack(this)
     }
 
     override fun onPause() {

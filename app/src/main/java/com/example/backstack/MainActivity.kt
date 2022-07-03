@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         Log.d("TEST_TAG", "Activity 1    onResume")
         super.onResume()
+        Logger.logBackStack(this)
     }
 
     override fun onPause() {
@@ -46,23 +47,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun logBackStack() {
-        val m = getSystemService(ACTIVITY_SERVICE) as ActivityManager
-        val runningTaskInfoList = m.getRunningTasks(10)
-        val itr: Iterator<RunningTaskInfo> = runningTaskInfoList.iterator()
-        while (itr.hasNext()) {
-            val runningTaskInfo = itr.next()
-            val id = runningTaskInfo.id
-            val desc = runningTaskInfo.description
-            val numOfActivities = runningTaskInfo.numActivities
-            val topActivity = runningTaskInfo.topActivity!!.shortClassName
-            Log.d(
-                "TEST_TAG", "" +
-                        "  id = $id" +
-                        "  desc = $desc" +
-                        "  numOfActivities = $numOfActivities" +
-                        "  topActivity = $topActivity"
-            )
-        }
-    }
 }

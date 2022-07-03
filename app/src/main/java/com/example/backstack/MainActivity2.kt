@@ -25,6 +25,7 @@ class MainActivity2 : AppCompatActivity() {
     override fun onResume() {
         Log.d("TEST_TAG", "Activity 2    onResume")
         super.onResume()
+        Logger.logBackStack(this)
     }
 
     override fun onPause() {
